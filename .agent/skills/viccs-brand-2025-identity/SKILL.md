@@ -39,5 +39,5 @@ Use `resources/voice-tone.md` to ensure all written content reflects Paulo's per
 - **Adobe Suite:** Photoshop, After Effects, Illustrator, Premiere, InDesign, Lightroom, XD
 - **3D & Motion:** 3DS Max, Cinema 4D, Blender
 - **Web/UI:** Figma, Wordpress
-- **Dev/AI:** IA Development (Vibecoding), Cursor
-- **Languages:** Português (Native), Inglês
+- **Dev/AI:** IA Development (Vibecoding), Cursor, Google AntiGravity, Prompt Engineer
+- **Languages:** Português (Native), Inglês (Fluent)

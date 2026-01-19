@@ -6,144 +6,60 @@ description: Designs, plans, and validates high-performance websites with comple
 # Building Advanced Visual Websites
 
 ## When to use this skill
-- The user requests websites with **3D graphics, shaders, or simulations**
-- The user mentions **WebGPU, WebGL, Three.js, Babylon.js, or R3F**
-- The user wants **Liquid Glass / glassmorphism / refraction effects**
-- The project requires **high visual fidelity with strong performance**
-- The site is a **portfolio, experimental website, or creative showcase**
 
----
+- When the user asks for "Advanced UI", "3D effects", "WebGL", "Three.js", or "Shaders".
+- When creating high-end portfolios or immersive brand experiences (like Apple/Riot Games/Agency sites).
+- When implementing physics-based animations, glassmorphism, or complex scroll interactions.
+- When performance is critical for heavy visual loads (GPU acceleration usage).
 
 ## Workflow
 
-### Checklist
-- [ ] Identify visual complexity level (UI-only / 3D / simulation)
-- [ ] Choose rendering pipeline (CSS / WebGL / WebGPU)
-- [ ] Select animation system (timeline vs physics-based)
-- [ ] Define performance constraints (mobile, desktop, GPU load)
-- [ ] Validate browser compatibility
-- [ ] Apply progressive enhancement strategy
+1. **Technology Selection**:
+    - **Core**: React Three Fiber (R3F) for declarative 3D.
+    - **Shaders**: TSL (Three Shading Language) or GLSL via `drei/shaderMaterial`.
+    - **Animation**: GSAP (Timeline control) or Framer Motion (UI transitions).
+    - **Post-Processing**: `react-postprocessing` for Bloom, Depth of Field, Noise.
+2. **Scene Setup**:
+    - Initialize `<Canvas>` with proper pixel ratio (`dpr={[1, 2]}`) and shadows.
+    - Configure `OrbitControls` or `ScrollControls` for navigation.
+3. **Optimization Strategy**:
+    - Use `InstancedMesh` for repeating objects (>100 instances).
+    - Enable `useFrame` loops selectively; avoid heavy logic in the render loop.
+    - Draco compress all GLTF models.
+4. **Integration**:
+    - Overlay HTML UI using `<Html>` from `@react-three/drei` or standard absolute positioning on top of the Canvas.
 
----
+## Instructions
 
-## Plan → Validate → Execute Loop
+### Liquid Glass & Shader Effects
 
-### Plan
-- Define which parts are **GPU-bound** vs **CPU-bound**
-- Decide whether visuals are **decorative or interactive**
-- Choose fallback strategies for low-end devices
+To achieve the "Liquid Glass" look:
 
-### Validate
-- Confirm WebGPU availability before enabling heavy effects
-- Measure frame stability (target: 60 FPS)
-- Verify memory usage and shader complexity
+1. **Material**: Use `MeshPhysicalMaterial`.
+2. **Settings**:
+    - `transmission: 0.95` (Glass transparency)
+    - `roughness: 0.1` (Smoothness)
+    - `thickness: 1.5` (Refraction depth)
+    - `ior: 1.5` (Index of Refraction)
+3. **Lighting**: High-contrast environment map (`Environment` from drei) is crucial for reflections.
 
-### Execute
-- Implement visuals incrementally
-- Optimize before adding new effects
-- Lock visuals behind feature detection
+### React Three Fiber (R3F) Helper
 
----
+- **Canvas**: The root entry point.
+- **Hooks**:
+  - `useThree()`: Access camera, scene, renderer.
+  - `useFrame((state, delta) => ...)`: Run code every frame (animation loop).
+  - `useLoader(GLTFLoader, '/path')`: Load 3D assets.
 
-## Core Technology Stack (2026)
+### Performance Rules
 
-### Rendering & Simulation
-- **WebGPU**
-  - Primary choice for advanced shaders, refraction, fluid simulation
-  - Enables compute shaders and modern GPU pipelines
-- **Three.js (WebGPU renderer preferred)**
-  - Scene graph, materials, loaders, post-processing
-- **React Three Fiber**
-  - Declarative scene composition in React-based projects
-- **Babylon.js**
-  - Use for simulation-heavy or game-like environments
-
----
-
-### Animation & Interaction
-- **GSAP**
-  - Timeline-based animations
-  - Scroll-driven storytelling
-- **Physics / Simulation**
-  - GPU particles via compute shaders
-  - WASM modules for math-heavy logic
-
----
-
-### Liquid Glass–Style Effects
-
-#### Lightweight UI Glass
-- CSS `backdrop-filter`
-- SVG filters:
-  - `feGaussianBlur`
-  - `feDisplacementMap`
-- Use only for:
-  - Panels
-  - HUD elements
-  - Navigation layers
-
-#### Physically Accurate Glass
-- Fragment shaders using:
-  - Refraction vectors
-  - Normal maps
-  - Environment sampling
-- Requires:
-  - WebGL (advanced)
-  - WebGPU (preferred)
-
----
-
-## Performance Rules
-
-### Mandatory
-- Use **requestAnimationFrame**
-- Throttle animations when tab is inactive
-- Dispose GPU resources explicitly
-- Avoid overdraw in shaders
-
-### Optimization Strategy
-- Prefer **compute shaders** over JS loops
-- Offload math-heavy logic to **WebAssembly**
-- Use LOD (Level of Detail) for 3D assets
-- Defer non-critical visuals
-
----
-
-## Frontend Architecture
-
-### Recommended Frameworks
-- **Astro**
-  - Content-heavy sites with isolated interactive islands
-- **Next.js**
-  - React + SEO + R3F integration
-- **SvelteKit**
-  - When minimal JS and performance are critical
-
----
-
-## Progressive Enhancement Strategy
-
-- Detect:
-  - WebGPU → Enable full visuals
-  - WebGL → Enable reduced visuals
-  - No GPU features → Static UI fallback
-- Never block content behind visuals
-
----
-
-## Error Handling
-
-- If unsure about shader behavior:
-  - Run validation builds
-  - Reduce shader complexity
-- If performance drops:
-  - Disable post-processing first
-- For scripts:
-  - Run with `--help` before execution
-
----
+- **Do not** create new materials or geometries inside `useFrame`.
+- **Do** dispose of heavy assets when unmounting (R3F handles most, but be careful with custom textures).
+- **Do** use lazy loading (`Suspense`) for heavy 3D models.
 
 ## Resources
-- `/scripts/` – GPU capability detection helpers
-- `/examples/` – Reference scenes (3D, glass, shaders)
-- `/resources/` – Shader templates and UI overlays
+
+- [React Three Fiber Docs](https://docs.pmnd.rs/react-three-fiber)
+- [Drei (Helpers) Docs](https://github.com/pmndrs/drei)
+- [The Book of Shaders](https://thebookofshaders.com/)
+- [GSAP Documentation](https://greensock.com/docs/)
