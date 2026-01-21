@@ -18,35 +18,103 @@ A estrutura do repositório é organizada para facilitar a criação, manutenç�
 
 ## 🛠️ Skills Disponíveis
 
-Atualmente, o repositório conta com uma vasta gama de habilidades para diversas áreas do desenvolvimento:
+O repositório conta com uma vasta biblioteca de habilidades, organizadas por domínio:
 
-### Desenvolvimento Web & App
+### 🧠 Core, Arquitetura & Workflow
 
-- **`building-advanced-visual-websites`**: Criação de sites de alto desempenho com WebGL, Three.js e shaders.
-- **`building-mobile-apps`**: Desenvolvimento mobile com React Native e Expo.
-- **`prototyping-lovable`**: Prototipagem rápida e "Frontend First" com Lovable.AI.
-- **`viccs-brand-2025-identity`**: Diretrizes de marca e design tokens da identidade VICCS 2025.
-- **`brand-identity`**: Gestão de identidade visual e design systems genéricos.
+*Skills fundamentais para planejamento, análise e operação do agente.*
 
-### DevOps & Infraestrutura
+- **`app-builder`**: Orquestrador para construir aplicações completas do zero.
+- **`architecture`**: Framework para decisões arquiteturais e análise de trade-offs.
+- **`behavioral-modes`**: Modos operacionais do agente (brainstrom, implement, debug, etc.).
+- **`brainstorming`**: Protocolo socrático para resolver problemas complexos ou ambíguos.
+- **`clean-code`**: Padrões pragmáticos de código limpo e refatoração.
+- **`documentation-templates`**: Templates para READMEs, Docs de API e comentários.
+- **`parallel-agents`**: Padrões para orquestração de múltiplos agentes.
+- **`plan-writing`**: Criação de planos de implementação estruturados.
 
-- **`deploying-vercel`**: Deploy e configuração de projetos na Vercel.
-- **`automating-github-actions`**: Automação de pipelines CI/CD com GitHub Actions.
-- **`using-docker`**: Containerização de aplicações e Docker Compose.
-- **`hosting-vite`**: Configuração e build de projetos Vite.
-- **`using-bun`**: Gerenciamento de projetos com Bun (runtime, package manager).
-- **`managing-supabase`**: Gestão de backend Supabase (Auth, DB, Edge Functions).
+### 🎨 Frontend & Design
 
-### Modding & Games
+*Criação de interfaces, experiências visuais e identidades.*
 
-- **`modding-hytale`**: Criação de mods para Hytale (Java, ECS).
-- **`modding-fivem-qbcore`**: Scripting Lua e gestão de servidores FiveM (QBCore).
-- **`using-noesis-gui`**: Criação de interfaces de usuário (UI) com NoesisGUI e XAML para jogos (ex: Hytale).
+- **`brand-identity`**: Gestão de identidade visual e design systems.
+- **`building-advanced-visual-websites`**: WebGL, Three.js e efeitos visuais avançados.
+- **`building-mobile-apps`**: React Native e Expo para mobile.
+- **`frontend-design`**: Princípios de design UI/UX para desenvolvedores.
+- **`mobile-design`**: Padrões de design "Mobile-First" e interações por toque.
+- **`nextjs-best-practices`**: Arquitetura e padrões para App Router e Server Components.
+- **`prototyping-lovable`**: Prototipagem rápida usando Lovable.AI.
+- **`react-patterns`**: Hooks, contextos e padrões modernos de React.
+- **`tailwind-patterns`**: Arquitetura CSS-first e tokens com Tailwind v4.
+- **`ui-ux-pro-max`**: Biblioteca exaustiva de componentes, paletas e heurísticas de UX.
+- **`viccs-brand-2025-identity`**: Identidade específica da marca VICCS 2025.
 
-### Qualidade & IA
+### ⚙️ Backend & Dados
 
-- **`testing-apps`**: Testes unitários e E2E com Vitest e Playwright.
-- **`integrating-ai`**: Integração de IA com Vercel AI SDK e Ollama.
+*Lógica de servidor, bancos de dados e APIs.*
+
+- **`api-patterns`**: Design de APIs REST, GraphQL e RPC.
+- **`database-design`**: Modelagem de dados, SQL e otimização de schemas.
+- **`managing-supabase`**: Gestão completa do ecossistema Supabase.
+- **`nestjs-expert`**: Arquitetura modular e injeção de dependência com NestJS.
+- **`nodejs-best-practices`**: Segurança, performance e padrões async para Node.js.
+- **`prisma-expert`**: Modelagem de schema e queries eficientes com Prisma ORM.
+- **`python-patterns`**: Padrões Pythonic e estruturação de projetos Python.
+- **`using-bun`**: Utilização do toolkit Bun (runtime, test, bundler).
+
+### 🚀 DevOps & Infraestrutura
+
+*Deploy, CI/CD e gerenciamento de servidores.*
+
+- **`automating-github-actions`**: Pipelines de CI/CD e automação de workflows.
+- **`bash-linux`**: Automação e scripts via terminal Linux/Bash.
+- **`deploying-vercel`**: Deploy serverless e edge functions na Vercel.
+- **`deployment-procedures`**: Estratégias de deploy seguro e rollbacks.
+- **`docker-expert`**: Otimização avançada de Dockerfiles e segurança de containers.
+- **`hosting-vite`**: Build e hospedagem de SPAs com Vite.
+- **`powershell-windows`**: Automação e administração via PowerShell.
+- **`server-management`**: Monitoramento e gestão de servidores Linux.
+- **`using-docker`**: Fundamentos de containerização e Docker Compose.
+
+### 🕹️ Game Dev & Modding
+
+*Desenvolvimento de jogos e modificações.*
+
+- **`game-development`**: Orquestrador para desenvolvimento de jogos multipataforma.
+- **`modding-fivem-qbcore`**: Servidores de GTA V RP com QBCore e Lua.
+- **`modding-hytale`**: Modding para Hytale (Java 25, Visual Scripting, V2 World Gen).
+- **`using-noesis-gui`**: Interfaces XAML para engines de jogos.
+
+### ✅ Qualidade (QA) & Testes
+
+*Garantia de qualidade e correção de bugs.*
+
+- **`code-review-checklist`**: Diretrizes para revisão de código e segurança.
+- **`lint-and-validate`**: Configuração de linters e ferramentas de análise estática.
+- **`systematic-debugging`**: Metodologia científica para resolução de bugs complexos.
+- **`tdd-workflow`**: Ciclo Red-Green-Refactor e desenvolvimento guiado por testes.
+- **`testing-apps`**: Configuração de runners como Vitest e Jest.
+- **`testing-patterns`**: Estratégias de mocking, stubs e testes de integração.
+- **`webapp-testing`**: Testes E2E e automação com Playwright/Cypress.
+
+### 🔒 Segurança & Otimização
+
+*Proteção, performance e visibilidade.*
+
+- **`geo-fundamentals`**: Otimização para "Generative Engines" (AI Search).
+- **`performance-profiling`**: Análise de gargalos e otimização de runtime.
+- **`red-team-tactics`**: Simulação de ataques e análise de vulnerabilidades.
+- **`seo-fundamentals`**: Otimização para motores de busca e Core Web Vitals.
+- **`vulnerability-scanner`**: Identificação e mitigação de CVEs e riscos de segurança.
+
+### 🧩 Especializadas & Integração
+
+*Habilidades de domínio específico.*
+
+- **`i18n-localization`**: Internacionalização e suporte a múltiplos idiomas.
+- **`integrating-ai`**: Implementação de LLMs e agentes via SDKs de IA.
+- **`mcp-builder`**: Criação de servidores MCP (Model Context Protocol).
+- **`typescript-expert`**: Tipagem avançada e configuração de TSConfig.
 
 ## 🚀 Como Criar uma Nova Skill
 
